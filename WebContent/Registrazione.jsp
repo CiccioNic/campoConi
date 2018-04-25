@@ -22,7 +22,7 @@
 
 
 				<form name="loginform" id="loginform" method="post"
-					action="/area_riservata.php">
+					action="/area_riservata.html">
 					<table>
 
 						<tr>
