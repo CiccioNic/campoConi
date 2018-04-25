@@ -98,7 +98,7 @@ public class AtletaDAO {
 				atleta.setRecapitotelefonico(rs.getString("Recapitotelefonico"));
 				atleta.setDatafine(rs.getString("Datafine"));
 				atleta.setDatainizio(rs.getString("Datainizio"));
-				atleta.setCap(rs.getString("CAP"));
+				atleta.setCap(rs.getString("CAP")); 
 				atleta.setVia(rs.getString("Via"));
 				atleta.setNumcivico(rs.getString("Numcivico"));
 				res.add(atleta);
