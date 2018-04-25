@@ -1,0 +1,4 @@
+<%if(session.getAttribute("autenticato")==null && trovatoCookie==false)
+response.sendRedirect("errore.html");%>
+<%--Poi vado in una delle tante pagine dell'area riservatae faccio un riferimento dove mi serve inserire quel codice--%>
+<%--si usa l'include per il fouter ad esempio che è uguale per ogni pagina del sito--%> 
