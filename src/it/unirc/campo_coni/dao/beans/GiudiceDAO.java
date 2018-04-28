@@ -53,6 +53,7 @@ public class GiudiceDAO {
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
+			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				Giudice giudice=new Giudice();

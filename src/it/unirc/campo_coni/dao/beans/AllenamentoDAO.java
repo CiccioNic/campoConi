@@ -76,5 +76,33 @@ public class AllenamentoDAO {
 		}
 		return res;
 	}
+	public boolean inserisciDatiAllenamento(Allenamento allenamento) {
+		String query = "INSERT INTO ALLENAMENTO(data,ora,durata) VALUES(?,?,?)";	
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, allenamento.getData());
+			ps.setString(2, allenamento.getOra());
+			ps.setString(3, allenamento.getDurata());
+			ResultSet rs = ps.executeQuery();
+			//if(rs.next()) {
+				//res.setUsername(rs.getString("username") );
+				//res.setId(rs.getString("id"));
+				//res.setCap(rs.getString("cap"));
+				//res.setVia(rs.getString("via")); 
+				//res.setNome(rs.getString("nome"));
+				//res.setCognome(rs.getString("cognome"));
+				//res.setCodicefiscale(rs.getString("codicefiscale"));
+				//res.setNumcivico(rs.getString("numcivico"));} 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		DBManager.closeConnection();
+		return true;
+	}
 
 }

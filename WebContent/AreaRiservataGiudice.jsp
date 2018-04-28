@@ -16,26 +16,39 @@
 				Benvenuto! <span style="font-weight: bold; color: #C4DA64;">StopWatch</span>
 			</h1>
 			<p class="big">
-			    <a href="ricerca.html"> Desideri sapere di più su atleti, giudici, squadre o allenatori?</a>
+				<a href="ricerca.html"> Desideri sapere di più su atleti,
+					giudici, squadre o allenatori?</a>
 			</p>
 			<p class="big">
-			    <a href=""> Visualizza l'elenco degli allenamenti</a>
+				<a href=""> Inserisci i risultati di una gara</a>
 			</p>
-			    <a href=""> Visualizza l'elenco delle gare</a>
+			<p class="big">
+				<a href=""> Crea un allenamento </a>
 			</p>
-			<p> <a href=""> Visualizza i risultati delle gare</a></p>
+			<p class="big">
+				<a href=""> Modifica un allenameto da te creato</a>
+			</p>
+			<p class="big">
+				<a href=""> Elimina un allanemento da te creato</a>
+			</p class = "big">
+
+			<a href=""> Visualizza l'elenco delle gare</a>
+			</p>
+			<p class="big">
+				<a href=""> Visualizza i risultati delle gare</a>
+			</p>
 		</div>
 		<div id="content_right">
 			<%@ include file="RecommendedLinks.html"%>
 			<dl class="curved">
 				<dt>
-					LOGIN<br />
-					<span class="small"> Entra nella tua area riservata oppure
-						registrati</span>
+					LOGIN<br /> <span class="small"> Entra nella tua area
+						riservata oppure registrati</span>
 				</dt>
 				<dd>
 					<p></p>
-					<form name="loginform" id="loginform" method="post" action="Servlet_login">
+					<form name="loginform" id="loginform" method="post"
+						action="Servlet_login">
 						<p>
 							<label for="username">Username <span class="no_auth"></span></label>
 							<input id="username" class="input" name="uname" type="text"

@@ -12,8 +12,6 @@ import it.unirc.campo_coni.dao.utils.DBManager;
 
 public class AtletaDAO {
 	private Connection conn;
-	//in maniera analoga è possibile implementare public Allenatore getStudente(studente) {
-	//che restituisce uno studente data la sua matricola
 	public Atleta loginAtleta(Atleta atleta) {
 		String query = "SELECT l.IDUTENTE AS id, a.NOME AS nome, a.COGNOME as cognome, "
 				+ "a.CODICEFISCALE as codicefiscale, a.LUOGODINASCITA as luogodinascita,"
