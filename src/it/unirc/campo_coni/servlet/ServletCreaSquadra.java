@@ -7,22 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.unirc.campo_coni.dao.beans.Allenamento;
-import it.unirc.campo_coni.dao.beans.AllenamentoDAO;
-import it.unirc.campo_coni.dao.beans.Allenatore;
-import it.unirc.campo_coni.dao.beans.AllenatoreDAO;
+import it.unirc.campo_coni.dao.beans.Gara;
+import it.unirc.campo_coni.dao.beans.GaraDAO;
+import it.unirc.campo_coni.dao.beans.Squadra;
+import it.unirc.campo_coni.dao.beans.SquadraDAO;
 
 /**
- * Servlet implementation class ServletCreaAllenamento
+ * Servlet implementation class ServletCreaSquadra
  */
-@WebServlet("/ServletCreaAllenamento")
-public class ServletCreaAllenamento extends HttpServlet {
+@WebServlet("/ServletCreaSquadra")
+public class ServletCreaSquadra extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletCreaAllenamento() {
+    public ServletCreaSquadra() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,21 +32,18 @@ public class ServletCreaAllenamento extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String reqData = request.getParameter("data");
-		String reqDurata = request.getParameter("durata");
-     	String reqOra = request.getParameter("ora");
-        Allenamento allenamento = new Allenamento();
-		allenamento.setData(reqData);
-		allenamento.setDurata(reqDurata);
-		allenamento.setOra(reqOra);
-
-		AllenamentoDAO allenamentoDAO = new AllenamentoDAO();
-		if(allenamentoDAO.inserisciDatiAllenamento(allenamento)) {
+		String reqNome = request.getParameter("nome");
+		String reqColorimaglia = request.getParameter("colorimaglia");
+		Squadra squadra = new Squadra();
+		squadra.setNome(reqNome);
+		squadra.setColorimaglia(reqColorimaglia);
+		SquadraDAO squadraDAO = new SquadraDAO();
+		if(squadraDAO.inserisciDatiSquadra(squadra)) {
 			response.sendRedirect("paginaOperazioneAvvenuta.html");
 		}
 		//else
 			//response.sendRedirect("errore.html");
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
