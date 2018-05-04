@@ -34,32 +34,5 @@ public class AmministratoreDAO {
 		DBManager.closeConnection();
 		return res;
 	}
-	public boolean inserisciDatiSquadra(Squadra squadra) {
-		String query = "INSERT INTO ALLENAMENTO(nome,colorimaglia) VALUES(?,?)";	
-		PreparedStatement ps;
-		conn=DBManager.startConnection();
-		try {
-			ps = conn.prepareStatement(query);
-			ps.setString(1, squadra.getNome());
-			ps.setString(2, squadra.getColorimaglia());
-			ResultSet rs = ps.executeQuery();
-			//if(rs.next()) {
-				//res.setUsername(rs.getString("username") );
-				//res.setId(rs.getString("id"));
-				//res.setCap(rs.getString("cap"));
-				//res.setVia(rs.getString("via")); 
-				//res.setNome(rs.getString("nome"));
-				//res.setCognome(rs.getString("cognome"));
-				//res.setCodicefiscale(rs.getString("codicefiscale"));
-				//res.setNumcivico(rs.getString("numcivico"));} 
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
-		DBManager.closeConnection();
-		return true;
-	} 
 
 }

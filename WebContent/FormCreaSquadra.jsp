@@ -10,7 +10,7 @@
 <%-- <%@ include file="check.html" %> --%>
 	
 	<form name="loginform" id="loginform" method="get"
-		action="/src/it/unirc/campo_coni/servlet/ServletCreaSquadra.java">
+		action="ServletCreaSquadra">
 		<table>
 
 			<tr>

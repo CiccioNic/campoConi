@@ -38,11 +38,12 @@ public class ServletCreaSquadra extends HttpServlet {
 		squadra.setNome(reqNome);
 		squadra.setColorimaglia(reqColorimaglia);
 		SquadraDAO squadraDAO = new SquadraDAO();
-		if(squadraDAO.inserisciDatiSquadra(squadra)) {
+		if(squadraDAO.inserisciDatiSquadra(squadra)==true) {
 			response.sendRedirect("paginaOperazioneAvvenuta.html");
 		}
-		//else
-			//response.sendRedirect("errore.html");
+		else {
+			response.sendRedirect("errore.html");
+		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -55,3 +56,4 @@ public class ServletCreaSquadra extends HttpServlet {
 	}
 
 }
+

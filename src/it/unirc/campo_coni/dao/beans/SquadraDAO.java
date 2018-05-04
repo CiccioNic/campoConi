@@ -33,14 +33,15 @@ public class SquadraDAO {
 		return res;
 	}
 	public boolean inserisciDatiSquadra(Squadra squadra) {
-		String query = "INSERT INTO CAMPO_CONI.SQUADRA(nome,colorimaglia) VALUES(?,?)";	
+		String query = "INSERT INTO SQUADRA(nome,colorimaglia) VALUES(?,?)";	
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
 			ps.setString(1, squadra.getNome());
 			ps.setString(2, squadra.getColorimaglia());
-			ResultSet rs = ps.executeQuery();
+		//	ResultSet rs = 
+			ps.executeQuery();
 			//if(rs.next()) {
 				//res.setUsername(rs.getString("username") );
 				//res.setId(rs.getString("id"));

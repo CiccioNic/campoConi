@@ -8,8 +8,8 @@ public class DBManager {
 	private static Connection conn = null;
 	private static final String DbDriver = "oracle.jdbc.driver.OracleDriver";
 	private static final String DbURL = "jdbc:oracle:thin:@localhost:1521:GlobalDB";
-	private static final String username = "scott";
-	private static final String password = "scott";
+	private static final String username = "CAMPO_CONI";
+	private static final String password = "CAMPO_CONI";
 	// private static String DbDriver = "com.mysql.jdbc.Driver";
 	// private static String DbURL = "jdbc:mysql://localhost:3306/test";
 	// private static String username = "root";
