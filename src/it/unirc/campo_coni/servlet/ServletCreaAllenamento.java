@@ -44,8 +44,8 @@ public class ServletCreaAllenamento extends HttpServlet {
 		if(allenamentoDAO.inserisciDatiAllenamento(allenamento)) {
 			response.sendRedirect("paginaOperazioneAvvenuta.html");
 		}
-		//else
-			//response.sendRedirect("errore.html");
+		else
+			response.sendRedirect("errore.html");
         response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

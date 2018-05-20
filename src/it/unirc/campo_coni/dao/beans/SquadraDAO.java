@@ -60,6 +60,7 @@ public class SquadraDAO {
 		DBManager.closeConnection();
 		return true;
 	}
+	
 
 }
 

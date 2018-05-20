@@ -32,16 +32,15 @@ public class GaraDAO {
 		}
 		return res;
 	}
-	public boolean inserisciDatiGara() {
+	public boolean inserisciDatiGara(Gara gara) {
 		String query = "INSERT INTO gara(data,ora) VALUES(?,?)"; 		
-		Gara gara = new Gara();
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
 			ps.setString(1, gara.getData());
 			ps.setString(2, gara.getOra());
-			ResultSet rs = ps.executeQuery();
+			ps.executeUpdate();
 			//if(rs.next()) {
 			//res.setUsername(rs.getString("username") );
 			//res.setId(rs.getString("id"));

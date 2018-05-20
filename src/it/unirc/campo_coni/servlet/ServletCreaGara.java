@@ -38,11 +38,11 @@ public class ServletCreaGara extends HttpServlet {
 		gara.setData(reqData);
 		gara.setOra(reqOra);
 		GaraDAO garaDAO = new GaraDAO();
-		if(garaDAO.inserisciDatiGara()) {
+		if(garaDAO.inserisciDatiGara(gara)) {
 			response.sendRedirect("paginaOperazioneAvvenuta.html");
 		}
-		else
-			response.sendRedirect("errore.html");
+		//else
+		//	response.sendRedirect("errore.html");
         response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

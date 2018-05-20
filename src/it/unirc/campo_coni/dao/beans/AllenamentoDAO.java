@@ -85,7 +85,7 @@ public class AllenamentoDAO {
 			ps.setString(1, allenamento.getData());
 			ps.setString(2, allenamento.getOra());
 			ps.setString(3, allenamento.getDurata());
-			ResultSet rs = ps.executeQuery();
+		    ps.executeQuery();
 			//if(rs.next()) {
 				//res.setUsername(rs.getString("username") );
 				//res.setId(rs.getString("id"));

@@ -104,5 +104,44 @@ public class AllenatoreDAO {
 		return res;
 	}
 	
+	public boolean inserisciDatiAllenatore(Allenatore allenatore) {
+		String query = "INSERT INTO allenatore(username, password, nome, cognome, codicefiscale, datadinascita,"
+				+ " luogodinascita, recapitotelefonico, numcivico, cap, via) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)"; 		
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, allenatore.getUsername());
+			ps.setString(2, allenatore.getPassword());
+			ps.setString(3, allenatore.getNome());
+			ps.setString(4, allenatore.getCognome());
+			ps.setString(5, allenatore.getCodicefiscale());
+			ps.setString(6, allenatore.getDatadinascita());
+			ps.setString(7, allenatore.getLuogodinascita());
+			ps.setString(8, allenatore.getRecapitotelefonico());
+			ps.setString(9, allenatore.getNumcivico());
+			ps.setString(10, allenatore.getCap());
+			ps.setString(11, allenatore.getVia());
+			ps.executeUpdate();
+			//if(rs.next()) {
+			//res.setUsername(rs.getString("username") );
+			//res.setId(rs.getString("id"));
+			//res.setCap(rs.getString("cap"));
+			//res.setVia(rs.getString("via")); 
+			//res.setNome(rs.getString("nome"));
+			//res.setCognome(rs.getString("cognome"));
+			//res.setCodicefiscale(rs.getString("codicefiscale"));
+			//res.setNumcivico(rs.getString("numcivico"));} 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		DBManager.closeConnection();
+		return true;
+	}
+	
 
 }

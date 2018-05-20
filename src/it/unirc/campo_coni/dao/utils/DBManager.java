@@ -16,40 +16,40 @@ public class DBManager {
 	// private static String password = "";
 	private DBManager(){}
 	/**
-	* Metododo che restituisce true se la connessione e' aperta.
-	*/
+	 * Metododo che restituisce true se la connessione e' aperta.
+	 */
 	public static boolean isOpen(){
-	// if (conn == null)
-	// return false;
-	// else
-	// return true;
-	return (conn!=null);
+		// if (conn == null)
+		// return false;
+		// else
+		// return true;
+		return (conn!=null);
 	}
 	public static Connection startConnection(){
-	if ( isOpen() )
-	return conn;
-	try {
-	Class.forName(DbDriver);// Carica il Driver del DBMS
-	conn = DriverManager.getConnection(DbURL, username, password);// Apertura connessione
-	}
-	catch (Exception e) {
-	e.printStackTrace();
-	return null;
-	}
-	return conn;
+		if ( isOpen() )
+			return conn;
+		try {
+			Class.forName(DbDriver);// Carica il Driver del DBMS
+			conn = DriverManager.getConnection(DbURL, username, password);// Apertura connessione
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		return conn;
 	}
 	public static boolean closeConnection(){
-	if ( !isOpen() )
-	return true;
-	try {
-	conn.close();
-	conn = null;
+		if ( !isOpen() )
+			return true;
+		try {
+			conn.close();
+			conn = null;
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
-	catch (SQLException e){
-	e.printStackTrace();
-	return false;
-	}
-	return true;
-	}
-	
+
 }
