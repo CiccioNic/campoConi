@@ -19,14 +19,14 @@ import it.unirc.campo_coni.dao.beans.GaraDAO;
 @WebServlet("/ServletRegistrazione")
 public class ServletRegistrazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletRegistrazione() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ServletRegistrazione() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -69,12 +69,12 @@ public class ServletRegistrazione extends HttpServlet {
 			if(allenatoreDAO.inserisciDatiAllenatore(allenatore)) {
 				response.sendRedirect("paginaOperazioneAvvenuta.html");
 			}
-			//else
-			//	response.sendRedirect("errore.html");
+			else
+				response.sendRedirect("errore.html");
 
 
 
-        }
+		}
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

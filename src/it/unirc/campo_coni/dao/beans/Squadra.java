@@ -10,8 +10,15 @@ public class Squadra {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
-    public Squadra(String id, String nome, String colorimaglia) {
+    public Squadra(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+
+	public Squadra(String id, String nome, String colorimaglia) {
 		super();
 		this.id = id;
 		this.nome = nome;

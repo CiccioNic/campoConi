@@ -17,6 +17,8 @@ import it.unirc.campo_coni.dao.beans.Atleta;
 import it.unirc.campo_coni.dao.beans.AtletaDAO;
 import it.unirc.campo_coni.dao.beans.Giudice;
 import it.unirc.campo_coni.dao.beans.GiudiceDAO;
+import it.unirc.campo_coni.dao.beans.Squadra;
+import it.unirc.campo_coni.dao.beans.SquadraDAO;
 
 /**
  * Servlet implementation class RicercaAtleta
@@ -91,9 +93,18 @@ public class Ricerca extends HttpServlet {
 			Giudice giudice = new Giudice(nome,cognome);
 			GiudiceDAO giudiceDAO=new GiudiceDAO();
 			LinkedList<Giudice> giudici=giudiceDAO.getGiudicebyNomeCognome(giudice);
+			request.setAttribute("giudice", giudice);
+			request.getRequestDispatcher("VisualizzAtleta.jsp ").forward(request,response);
 
-
-
+		}
+		if(ruolo.equals("squadra")) {
+			response.getWriter().append("Served at: ").append(request.getContextPath());
+			String nome = request.getParameter("nome");
+			//int nome=Integer.parseInt(nome1);
+			//int cognome = Integer.parseInt(cognome1);
+			Squadra squadra = new Squadra(nome);
+			SquadraDAO squadraDAO=new SquadraDAO();
+		    LinkedList<Squadra> squadre = squadraDAO.getSquadre(squadra);
 			request.setAttribute("giudice", giudice);
 			request.getRequestDispatcher("VisualizzAtleta.jsp ").forward(request,response);
 

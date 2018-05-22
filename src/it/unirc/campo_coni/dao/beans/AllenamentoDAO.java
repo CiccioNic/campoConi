@@ -104,5 +104,37 @@ public class AllenamentoDAO {
 		DBManager.closeConnection();
 		return true;
 	}
+	
+	public boolean modificaDatiAllenamento(Allenamento allenamento) {
+		String query = "UPDATE allenamento SET durata = ?, data = ?, ora = ?";	
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, allenamento.getDurata());
+			ps.setString(2, allenamento.getData());
+			ps.setString(3, allenamento.getOra());
+		    ps.executeQuery();
+			//if(rs.next()) {
+				//res.setUsername(rs.getString("username") );
+				//res.setId(rs.getString("id"));
+				//res.setCap(rs.getString("cap"));
+				//res.setVia(rs.getString("via")); 
+				//res.setNome(rs.getString("nome"));
+				//res.setCognome(rs.getString("cognome"));
+				//res.setCodicefiscale(rs.getString("codicefiscale"));
+				//res.setNumcivico(rs.getString("numcivico"));} 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		DBManager.closeConnection();
+		return true;
+
+	}
+
+	
 
 }

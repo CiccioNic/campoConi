@@ -10,8 +10,13 @@
   <%-- <%@ include file="check.html" %> --%>>
 	<form name="loginform" id="loginform" method="get"
 		action="ServletCreaAllenamento">
+		<fieldset>
+			<legend>Chi sei?</legend>
+			Crea: <input type="radio" name="azione" value="crea" />
+			Modifica: <input type="radio" name="azione" value="modifca" />
+			Elimina: <input type="radio" name="azione" value="elimina" />
+		</fieldset>
 		<table>
-
 			<tr>
 				<td><label for="username">Durata: <span
 						class="no_auth"></span></label></td>
