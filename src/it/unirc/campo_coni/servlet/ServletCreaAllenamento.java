@@ -33,11 +33,12 @@ public class ServletCreaAllenamento extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String reqAzione = request.getParameter("azione");
+		Allenamento allenamento = new Allenamento();
 		if(reqAzione=="crea") {
 			String reqData = request.getParameter("data");
 			String reqDurata = request.getParameter("durata");
 			String reqOra = request.getParameter("ora");
-			Allenamento allenamento = new Allenamento();
+			//Allenamento allenamento = new Allenamento();
 			allenamento.setData(reqData);
 			allenamento.setDurata(reqDurata);
 			allenamento.setOra(reqOra);
@@ -50,10 +51,7 @@ public class ServletCreaAllenamento extends HttpServlet {
 				response.sendRedirect("errore.html");
 			response.getWriter().append("Served at: ").append(request.getContextPath());
 		}
-		if(reqAzione=="modifica") {
-			
-			
-		}
+	
 	}
 
 	/**

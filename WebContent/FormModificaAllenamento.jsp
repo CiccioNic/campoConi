@@ -9,7 +9,17 @@
 <body>
   <%-- <%@ include file="check.html" %> --%>>
 	<form name="loginform" id="loginform" method="get"
-		action="ServletCreaAllenamento">
+		action="ServletModificaAllenamento">
+		<fieldset>
+			<legend>Cosa vuoi modificare?</legend>
+			Durata: <input type="radio" name="reqAzione" value="durata"> 
+			Data: <input type="radio" name="reqAzione" value="data" />
+			Ora: <input type="radio" name="reqAzione" value="ora" />
+		</fieldset>
+		
+		
+		
+		
 		<table>
 			<tr>
 				<td><label for="username">Durata: <span

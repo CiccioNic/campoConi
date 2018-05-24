@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.Vector;
 
 import it.unirc.campo_coni.dao.utils.DBManager;
@@ -105,15 +106,15 @@ public class AllenamentoDAO {
 		return true;
 	}
 	
-	public boolean modificaDatiAllenamento(Allenamento allenamento) {
-		String query = "UPDATE allenamento SET durata = ?, data = ?, ora = ?";	
+	public boolean modificaDataAllenamento(Allenamento allenamento) {
+		String query = "UPDATE allenamento SET data = ?";	
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
-			ps.setString(1, allenamento.getDurata());
-			ps.setString(2, allenamento.getData());
-			ps.setString(3, allenamento.getOra());
+			//ps.setString(1, allenamento.getDurata());
+			ps.setString(1, allenamento.getData());
+			//ps.setString(3, allenamento.getOra());
 		    ps.executeQuery();
 			//if(rs.next()) {
 				//res.setUsername(rs.getString("username") );
@@ -134,7 +135,29 @@ public class AllenamentoDAO {
 		return true;
 
 	}
+	public Allenamento getUltimoAllenamentoCreato() {
+		String query ="SELECT* FROM allenamento as a WHERE a.id = (SELECT MAX(a.id)) FROM a";
+		Allenamento allenamento = new Allenamento();
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+            //ps.setString(1, atleta.getNome());
+            //ps.setString(2, atleta.getCognome());
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				allenamento.setOra (rs.getString("Ora") );
+				allenamento.setDurata( rs.getString("durata") );
+				allenamento.setData( rs.getString("data") );	
 
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return allenamento;
+	}
+    //cosi hogli ultimi allenamenti creati
 	
 
 }

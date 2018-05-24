@@ -40,6 +40,12 @@ public class Gara {
 	public void setOra(String ora) {
 		this.ora = ora;
 	}
+
+	@Override
+	public String toString() {
+		return "Gara [id=" + id + ", data=" + data + ", ora=" + ora + "]";
+	}
+	
 	
 	
 

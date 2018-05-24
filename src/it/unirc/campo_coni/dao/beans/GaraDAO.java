@@ -10,7 +10,32 @@ import it.unirc.campo_coni.dao.utils.DBManager;
 
 public class GaraDAO {
 	private Connection conn;
-	public Vector<Gara> getGara(){
+	
+	public Gara getGara(Gara gara) {
+		String query = "SELECT * FROM gara WHERE data = ? ";
+		Gara res = null;
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps=conn.prepareStatement(query);
+			ps.setString(1, gara.getData());
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				res=new Gara();
+				res.setId(rs.getString("id"));
+				res.setData(rs.getString("data"));
+				res.setOra(rs.getString("ora"));
+			}
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		DBManager.closeConnection();
+		return res;
+	}
+
+	public Vector<Gara> getGare(){
 		String query = "SELECT * FROM GARA";
 		Vector<Gara> res = new Vector<Gara>();
 		PreparedStatement ps;
