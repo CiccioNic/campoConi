@@ -39,7 +39,7 @@ public class SevletRicercaSquadra extends HttpServlet {
 		Vector<Squadra> squadre = new Vector<Squadra>();
 		squadre = squadraDAO.getSquadre();
 		request.setAttribute("squadre", squadre);//viene messo il risultato del'elaborazione della servlet nella request e questa viene inoltrata alla jsp
-		request.getRequestDispatcher("VisualizzaGare.jsp").forward(request, response);//questa response sara quella che verrà inoltrata dalla jsp
+		request.getRequestDispatcher("VisualizzaSquadra.jsp").forward(request, response);//questa response sara quella che verrà inoltrata dalla jsp
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

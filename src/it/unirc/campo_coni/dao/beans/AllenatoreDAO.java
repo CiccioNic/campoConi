@@ -105,29 +105,25 @@ public class AllenatoreDAO {
 	}
 	
 	public boolean inserisciDatiAllenatore(Allenatore allenatore) {
-		String query = "INSERT INTO allenatore(nome, cognome, codicefiscale, datadinascita,"
+		String query = "INSERT INTO allenatore(username, password, nome, cognome, codicefiscale, datadinascita,"
 				+ " luogodinascita, recapitotelefonico, numcivico, cap, via) "
-				+ "VALUES(?,?,?,?,?,?,?,?,?)"; 
-		String query2 = "INSERT INTO utente(username, password) VALUES(?,?)";
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)"; 
 		PreparedStatement ps;
-		PreparedStatement ps2;
 		conn=DBManager.startConnection();
 		try {
 			ps = conn.prepareStatement(query);
-			ps2 = conn.prepareStatement(query2);
-			ps2.setString(1, allenatore.getUsername());
-			ps2.setString(2, allenatore.getPassword());
-			ps.setString(1, allenatore.getNome());
-			ps.setString(2, allenatore.getCognome());
-			ps.setString(3, allenatore.getCodicefiscale());
-			ps.setString(4, allenatore.getDatadinascita());
-			ps.setString(5, allenatore.getLuogodinascita());
-			ps.setString(6, allenatore.getRecapitotelefonico());
-			ps.setString(7, allenatore.getNumcivico());
-			ps.setString(8, allenatore.getCap());
-			ps.setString(9, allenatore.getVia());
+			ps.setString(1, allenatore.getUsername());
+			ps.setString(2, allenatore.getPassword());
+			ps.setString(3, allenatore.getNome());
+			ps.setString(4, allenatore.getCognome());
+			ps.setString(5, allenatore.getCodicefiscale());
+			ps.setString(6, allenatore.getDatadinascita());
+			ps.setString(7, allenatore.getLuogodinascita());
+			ps.setString(8, allenatore.getRecapitotelefonico());
+			ps.setString(9, allenatore.getNumcivico());
+			ps.setString(10, allenatore.getCap());
+			ps.setString(11, allenatore.getVia());
 			ps.executeUpdate();
-			ps2.executeUpdate();
 			//if(rs.next()) {
 			//res.setUsername(rs.getString("username") );
 			//res.setId(rs.getString("id"));

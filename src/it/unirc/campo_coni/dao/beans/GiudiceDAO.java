@@ -97,6 +97,42 @@ public class GiudiceDAO {
 		}
 		return res;
 	}
+	public boolean inserisciDatiGiudice(Giudice giudice) {
+		// TODO Auto-generated method stub
+		String query = "INSERT INTO giudice(username,password,nome,cognome,codicefiscale,recapitotelefonico,numcivico,cap,via) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?)"; 		
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, giudice.getUsername());
+			ps.setString(2, giudice.getPassword());
+			ps.setString(3, giudice.getNome());
+			ps.setString(4, giudice.getCognome());
+			ps.setString(5, giudice.getCodicefiscale());
+			ps.setString(6, giudice.getRecapitotelefonico());
+			ps.setString(7, giudice.getNumcivico());
+			ps.setString(8, giudice.getCap());
+			ps.setString(9, giudice.getVia());
+			ps.executeUpdate();
+			//if(rs.next()) {
+			//res.setUsername(rs.getString("username") );
+			//res.setId(rs.getString("id"));
+			//res.setCap(rs.getString("cap"));
+			//res.setVia(rs.getString("via")); 
+			//res.setNome(rs.getString("nome"));
+			//res.setCognome(rs.getString("cognome"));
+			//res.setCodicefiscale(rs.getString("codicefiscale"));
+			//res.setNumcivico(rs.getString("numcivico"));} 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		DBManager.closeConnection();
+		return true;
+	}
 }
 
 

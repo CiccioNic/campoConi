@@ -3,10 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Coni RC</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-<link href="style.css" rel="stylesheet" type="text/css">
-
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
 	<%@ include file="header.html"%>
@@ -21,14 +19,14 @@
 
 
 
-				<form name="loginform" id="loginform" method="post"
-					action="ServletRegistrazione">
+				<form name="loginform" id="loginform" method="get"
+					action="ServletCreaAllenatore">
 					<table>
 
 						<tr>
 							<td><label for="username">Username: <span
 									class="no_auth"></span></label></td>
-							<td><input id="username" class="input" name="uname"
+							<td><input id="username" class="input" name="username"
 								type="text" size="18"></td>
 						</tr>
 						<tr>
@@ -38,7 +36,7 @@
 						</tr>
 						<tr>
 							<td><label for="password">Password: </label></td>
-							<td><input id="password" class="input" name="pword"
+							<td><input id="password" class="input" name="password"
 								type="password" size="18"></td>
 						</tr>
 						<tr>
@@ -89,9 +87,12 @@
 						<tr>
 							<td><label for="datadinascita">Data di nascita: <span
 									class="no_auth"></span></label></td>
-							<td><input id="datadinascita" type="date"></td>
+							<td><input id="datadinascita" type="date"
+								name="datadinascita"></td>
 
 						</tr>
+						<tr>
+		
 						<tr>
 							<td colspan="2"><fieldset>
 									<legend>Registrati come:</legend>
@@ -120,6 +121,5 @@
 		</div>
 	</div>
 	<%@ include file="footer.html"%>
-
 </body>
 </html>

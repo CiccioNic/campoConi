@@ -140,6 +140,48 @@ public class AtletaDAO {
 		}
 		return res;
 	}
+	public boolean inserisciDatiAtleta(Atleta atleta) {
+		// TODO Auto-generated method stub
+		String query = "INSERT INTO atleta(username,password,nome,cognome,codicefiscale,datadinascita,"
+				+ "luogodinascita,recapitotelefonico,datainizio,datafine,numcivico,cap,via) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)"; 		
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, atleta.getUsername());
+			ps.setString(2, atleta.getPassword());
+			ps.setString(3, atleta.getNome());
+			ps.setString(4, atleta.getCognome());
+			ps.setString(5, atleta.getCodicefiscale());
+			ps.setString(6, atleta.getDatadinascita());
+			ps.setString(7, atleta.getLuogodinascita());
+			ps.setString(8, atleta.getRecapitotelefonico());
+			ps.setString(9, atleta.getDatainizio());
+			ps.setString(10, atleta.getDatafine());
+			ps.setString(11, atleta.getNumcivico());
+			ps.setString(12, atleta.getCap());
+			ps.setString(13, atleta.getVia());
+
+
+			ps.executeUpdate();
+			//if(rs.next()) {
+			//res.setUsername(rs.getString("username") );
+			//res.setId(rs.getString("id"));
+			//res.setCap(rs.getString("cap"));
+			//res.setVia(rs.getString("via")); 
+			//res.setNome(rs.getString("nome"));
+			//res.setCognome(rs.getString("cognome"));
+			//res.setCodicefiscale(rs.getString("codicefiscale"));
+			//res.setNumcivico(rs.getString("numcivico"));} 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		DBManager.closeConnection();
+		return true;
+	}
 
 }
 
