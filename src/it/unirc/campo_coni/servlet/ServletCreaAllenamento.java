@@ -32,34 +32,31 @@ public class ServletCreaAllenamento extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String reqAzione = request.getParameter("azione");
 		Allenamento allenamento = new Allenamento();
-		if(reqAzione=="crea") {
-			String reqData = request.getParameter("data");
-			String reqDurata = request.getParameter("durata");
-			String reqOra = request.getParameter("ora");
-			//Allenamento allenamento = new Allenamento();
-			allenamento.setData(reqData);
-			allenamento.setDurata(reqDurata);
-			allenamento.setOra(reqOra);
-
-			AllenamentoDAO allenamentoDAO = new AllenamentoDAO();
-			if(allenamentoDAO.inserisciDatiAllenamento(allenamento)) {
-				response.sendRedirect("paginaOperazioneAvvenuta.html");
-			}
-			else
-				response.sendRedirect("errore.html");
-			response.getWriter().append("Served at: ").append(request.getContextPath());
+		String reqData = request.getParameter("data");
+		String reqDurata = request.getParameter("durata");
+		String reqOra = request.getParameter("ora");
+		//Allenamento allenamento = new Allenamento();
+		allenamento.setData(reqData);
+		allenamento.setDurata(reqDurata);
+		allenamento.setOra(reqOra);
+		AllenamentoDAO allenamentoDAO = new AllenamentoDAO();
+		if(allenamentoDAO.inserisciDatiAllenamento(allenamento)) {
+			response.sendRedirect("paginaOperazioneAvvenuta.html");
 		}
-	
+		else
+			response.sendRedirect("errore.html");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+
+
+/**
+ * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+ */
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// TODO Auto-generated method stub
+	doGet(request, response);
+}
 
 }

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <%-- <%@ include file="check.html" %> --%>>
+  <%-- <%@ include file="check.html" %> --%>
 	<form name="loginform" id="loginform" method="get"
 		action="ServletCreaAllenamento">
 		<table>

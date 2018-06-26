@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="it.unirc.campo_coni.dao.beans.Gara"%>
+<%@ page import="java.util.Vector"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -11,9 +12,9 @@
 </head>
 <body>
 	<%
-		Gara g = new Gara();
-	    g = (Gara) request.getAttribute("gara");
-		if (g != null) {
+		Vector<Gara> g = new Vector<Gara>();
+	    g =  (Vector<Gara>)request.getAttribute("gare");
+	    for (int i = 0; i < g.size(); i++){
 	%>
 	<table style="height: 39px;" width="307">
 		<tbody>
@@ -21,9 +22,10 @@
 				<td>Ora</td>
 				<td>Data</td>
 			</tr>
-			<td><%=g.getOra()%></td>
-			<td><%=g.getData()%></td>
-			<td><a href="modGara.jsp?ora=<%=g.getOra()%>&data=<%=g.getData()%>">Modifica</a></td>
+			<tr>
+			<td><%=g.get(i).getOra()%></td>
+			<td><%=g.get(i).getData()%></td>
+			<td><a href="modGara.jsp?ora=<%=g.get(i).getOra()%>&data=<%=g.get(i).getData()%>">Modifica</a></td>
 			</tr>
 		</tbody>
 	</table>

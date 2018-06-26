@@ -18,13 +18,13 @@ import it.unirc.campo_coni.dao.beans.GaraDAO;
  * Servlet implementation class RicercaGara
  */
 @WebServlet("/RicercaGara")
-public class RicercaGara extends HttpServlet {
+public class ServletRicercaGara extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RicercaGara() {
+    public ServletRicercaGara() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,13 +34,14 @@ public class RicercaGara extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String un = request.getParameter("data");
+		//String un = request.getParameter("data");
 		//per memorizzare l'informazione per un passo solo si usano gli attributi della rihiesta,
 		//alla richiesta devo aggiungere un attributo, in questo dovremmo specififcare l'oggetto da passare alla jsp
 		GaraDAO garaDAO = new GaraDAO();
-		Gara gara= new Gara(un,"","");
-		gara = garaDAO.getGara(gara);
-		request.setAttribute("gara", gara);//viene messo il risultato del'elaborazione della servlet nella request e questa viene inoltrata alla jsp
+		//Gara gara= new Gara(un,"","");
+		Vector<Gara> gare = new Vector<Gara>();
+		gare = garaDAO.getGare();
+		request.setAttribute("gare", gare);//viene messo il risultato del'elaborazione della servlet nella request e questa viene inoltrata alla jsp
 		request.getRequestDispatcher("VisualizzaGare.jsp").forward(request, response);//questa response sara quella che verrà inoltrata dalla jsp
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		// a differnza del send redirect il browser non vede il forward, il send redirect a differenza non permetteil passaggio di parametri

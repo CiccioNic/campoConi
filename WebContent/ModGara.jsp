@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <%-- <%@ include file="check.html" %> --%>
+<%-- <%@ include file="check.html" %> --%>
 	<form name="loginform" id="loginform" method="get"
-		action="ServletCreaGara">
+		action="ServletModificaGara">
 		<table>
 			<tr>
 				<td><label for="data">Data: <span class="no_auth"></span></label></td>
@@ -29,6 +29,7 @@
 
 		</table>
 	</form>
+
 
 </body>
 </html>

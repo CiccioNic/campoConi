@@ -78,7 +78,7 @@ public class AllenamentoDAO {
 		return res;
 	}
 	public boolean inserisciDatiAllenamento(Allenamento allenamento) {
-		String query = "INSERT INTO ALLENAMENTO(data,ora,durata) VALUES(?,?,?)";	
+		String query = "INSERT INTO allenamento(data,ora,durata) VALUES(?,?,?)";	
 		PreparedStatement ps;
 		conn=DBManager.startConnection();
 		try {
