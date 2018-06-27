@@ -22,7 +22,7 @@ public class SquadraDAO {
 				Squadra squadra = new Squadra();
 				squadra.setId(rs.getString("id"));
 				squadra.setNome(rs.getString("nome"));
-				squadra.setColorimaglia( rs.getString("colorimaglia") );
+				squadra.setColorimaglia(rs.getString("colorimaglia"));
 				res.add(squadra);
 
 			}
